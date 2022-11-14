@@ -1,6 +1,10 @@
+package store;
+
+import food.*;
+
 import java.util.ArrayList;
 
-public class SubwayStock {
+public class Stock {
 
     private ArrayList<Bread> breads = new ArrayList<>();
     private ArrayList<Filling> fillings = new ArrayList<>();
@@ -9,9 +13,6 @@ public class SubwayStock {
     private ArrayList<Sauce> sauces = new ArrayList<>();
     private ArrayList<Drink> drinks = new ArrayList<>();
     private ArrayList<Cookie> cookies = new ArrayList<>();
-
-    public SubwayStock() {
-    }
 
     public ArrayList<Bread> getBreads() {
         return breads;

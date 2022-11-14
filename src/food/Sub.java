@@ -1,14 +1,12 @@
+package food;
+
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class Sub {
     private Bread bread;
     private ArrayList<Ingredient> fillings = new ArrayList<>();
-    private ArrayList<Ingredient> additions = new ArrayList<>();;
-    private Double price = 0.0;
-
-    public Sub() {
-    }
+    private ArrayList<Ingredient> additions = new ArrayList<>();
+    private int price = 0;
 
     public Bread getBread() {
         return bread;
@@ -34,15 +32,11 @@ public class Sub {
         this.additions.add(addition);
     }
 
-    public void calculatePrice(){
-        price += fillings.stream().filter(ingredient -> ingredient.getPrice() != null)
-                .map(ingredient -> ingredient.getPrice())
-                .collect(Collectors.summingDouble(Double::doubleValue));
-        price += additions.stream().filter(ingredient -> ingredient.getPrice() != null)
-                .map(ingredient -> ingredient.getPrice())
-                .collect(Collectors.summingDouble(Double::doubleValue));
+    public int getPrice(){
+        price += fillings.stream().map(Ingredient::getPrice).mapToInt(Integer::intValue).sum();
+        price += additions.stream().map(Ingredient::getPrice).mapToDouble(Integer::intValue).sum();
+        return price;
     }
-
 
     @Override
     public String toString() {

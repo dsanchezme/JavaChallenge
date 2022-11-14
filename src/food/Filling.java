@@ -1,3 +1,5 @@
+package food;
+
 public class Filling extends Ingredient{
 
     private String preparation;
@@ -6,17 +8,7 @@ public class Filling extends Ingredient{
         super(name);
     }
 
-    public Filling(String name, Double price) {
-        super(name, price);
-    }
-
-    public Filling(String name, String preparation) {
-        super(name);
-        this.preparation = preparation;
-    }
-
-    public Filling(String name, Double price, String preparation) {
-        super(name, price);
+    public void setPreparation(String preparation) {
         this.preparation = preparation;
     }
 
